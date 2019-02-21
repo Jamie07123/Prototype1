@@ -12,7 +12,7 @@ namespace Prototype_Library
     {
 
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Integrated Security = True; 
-                                    MultipleActiveResultSets=True; AttachDbfilename = C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\Database1.mdf;";
+                                    MultipleActiveResultSets=True; AttachDbfilename = C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototype1Database1.mdf;";
 
         public void AddCustomer(Customer c)
         {
