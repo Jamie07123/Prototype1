@@ -1,0 +1,15 @@
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\bin\Debug\Prototype1.exe.config
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\bin\Debug\Prototype1.exe
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\bin\Debug\Prototype1.pdb
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.Properties.Resources.resources
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.csproj.GenerateResource.cache
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.exe
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.pdb
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\bin\Debug\Database1.mdf
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\bin\Debug\Database1_log.ldf
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\bin\Debug\Prototype_Library.dll
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\bin\Debug\Prototype_Library.pdb
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.RealityGlitch.resources
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.csprojAssemblyReference.cache
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.csproj.CoreCompileInputs.cache
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototype1\obj\Debug\Prototype1.csproj.CopyComplete

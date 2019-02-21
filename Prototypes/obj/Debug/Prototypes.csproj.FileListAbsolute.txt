@@ -1,0 +1,6 @@
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototypes.csprojAssemblyReference.cache
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototypes.csproj.CoreCompileInputs.cache
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\bin\Debug\Prototypes.dll
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\bin\Debug\Prototypes.pdb
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototypes.dll
+C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototypes.pdb
