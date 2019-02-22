@@ -472,6 +472,7 @@
             this.CustomerGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CustomerGridView2.Size = new System.Drawing.Size(768, 654);
             this.CustomerGridView2.TabIndex = 35;
+            this.CustomerGridView2.SelectionChanged += new System.EventHandler(this.CustomerGridView2_SelectionChanged);
             // 
             // customer_back
             // 

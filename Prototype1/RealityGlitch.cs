@@ -90,7 +90,8 @@ namespace Prototype1
         {
             Customer c = new Customer(titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
             crud.AddCustomer(c);
-            UpdateCustomerDataGrid("");        }
+            UpdateCustomerGrid("");
+        }
 
         private void Manufacturer_submit_Click(object sender, EventArgs e)
         {
@@ -144,7 +145,10 @@ namespace Prototype1
         {
             PopulateItemTextboxes();
         }
-
+        private void CustomerGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            PopulateCustomerTextboxes();
+        }
         private void PopulateItemTextboxes()
         {
             if (ItemDataGrid.SelectedCells.Count > 0)
@@ -160,6 +164,27 @@ namespace Prototype1
                 purchasebox.Text = Convert.ToString(selectedRow.Cells["PurchasePrice"].Value);
                 stockbox.Text = Convert.ToString(selectedRow.Cells["StockLvl"].Value);
                 descbox.Text = Convert.ToString(selectedRow.Cells["Description"].Value);
+            }
+        }
+        private void PopulateCustomerTextboxes()
+        {
+            if (CustomerGridView2.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = CustomerGridView2.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = CustomerGridView2.Rows[selectedrowindex];
+
+                titlebox.Text = Convert.ToString(selectedRow.Cells["Title"].Value);
+                fornamebox.Text = Convert.ToString(selectedRow.Cells["Forname"].Value);
+                surnamebox.Text = Convert.ToString(selectedRow.Cells["Surname"].Value);
+                countrybox.Text = Convert.ToString(selectedRow.Cells["Country"].Value);
+                address1box.Text = Convert.ToString(selectedRow.Cells["AddressLine1"].Value);
+                address2box.Text = Convert.ToString(selectedRow.Cells["AddressLine2"].Value);
+                townbox.Text = Convert.ToString(selectedRow.Cells["Town"].Value);
+                countybox.Text = Convert.ToString(selectedRow.Cells["County"].Value);
+                postcodebox.Text = Convert.ToString(selectedRow.Cells["Postcode"].Value);
+                telebox.Text = Convert.ToString(selectedRow.Cells["TelephoneNum"].Value);
+                emailbox.Text = Convert.ToString(selectedRow.Cells["Email"].Value);
             }
         }
 
@@ -270,6 +295,7 @@ namespace Prototype1
         {
             OrderGridView.DataSource = crud.PopulateOrdersGrid(id);
         }
+
 
         //-----------------------------------------------------------------------------------------------------------------//
     }
