@@ -4,3 +4,9 @@ C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototype_Lib
 C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototype_Library.pdb
 C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototype_Library.csprojAssemblyReference.cache
 C:\Users\jamie\source\repos\PROTOS\Prototype1\Prototypes\obj\Debug\Prototype_Library.csproj.CoreCompileInputs.cache
+C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototypes\bin\Debug\Prototype_Library.dll
+C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototypes\bin\Debug\Prototype_Library.pdb
+C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototypes\obj\Debug\Prototype_Library.csprojAssemblyReference.cache
+C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototypes\obj\Debug\Prototype_Library.csproj.CoreCompileInputs.cache
+C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototypes\obj\Debug\Prototype_Library.dll
+C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototypes\obj\Debug\Prototype_Library.pdb

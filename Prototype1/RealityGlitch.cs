@@ -24,6 +24,7 @@ namespace Prototype1
             //Sets all datagridviews to display all values on startup//
             UpdateItemDataGrid("");
             UpdateCustomerDataGrid("");
+            itemSearchFilter.SelectedIndex = 0;
             UpdateCustomerGrid("");
             UpdateItemGrid("");
             //-------------------------------------------------------//
@@ -212,8 +213,17 @@ namespace Prototype1
 
         public void UpdateItemGrid(string ItemSearch)
         {
-            ItemDataGrid.DataSource = null;
-            ItemDataGrid.DataSource = crud.PopulateItemGrid(ItemSearch);
+            if (itemSearchFilter.SelectedIndex == 0)
+            {
+                ItemDataGrid.DataSource = null;
+                ItemDataGrid.DataSource = crud.PopulateItemGridByName(ItemSearch);
+            }
+            if (itemSearchFilter.SelectedIndex == 1)
+            {
+                ItemDataGrid.DataSource = null;
+                ItemDataGrid.DataSource = crud.PopulateItemGridBySku(ItemSearch);
+            }
+
         }
 
         //order datagridview on orders screen

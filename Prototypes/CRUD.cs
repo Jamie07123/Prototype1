@@ -165,15 +165,29 @@ namespace Prototype_Library
             return dt;
         }
 
-        public DataTable PopulateItemGrid(string itemname)
+        public DataTable PopulateItemGridByName(string itemname)
         {
             var dt = new DataTable();
             using (var con = new SqlConnection(connectionString))
-            using (var cmd = new SqlCommand("PopulateItemGrid", con))
+            using (var cmd = new SqlCommand("PopulateItemGridByName", con))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(
                 new SqlParameter("@itemname", itemname));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+        public DataTable PopulateItemGridBySku(string sku)
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("PopulateItemGridBySku", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(
+                new SqlParameter("@sku", sku));
                 var da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }

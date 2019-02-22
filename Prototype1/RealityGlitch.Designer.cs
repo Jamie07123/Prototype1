@@ -127,6 +127,8 @@
             this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSet1 = new Prototype1.Database1DataSet();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.itemSearchFilter = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.customer_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerGridView2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -392,6 +394,7 @@
             // customer_panel
             // 
             this.customer_panel.BackColor = System.Drawing.Color.White;
+            this.customer_panel.Controls.Add(this.comboBox1);
             this.customer_panel.Controls.Add(this.label29);
             this.customer_panel.Controls.Add(this.CustomerSearchBox2);
             this.customer_panel.Controls.Add(this.CustomerGridView2);
@@ -431,16 +434,16 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(425, 105);
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label29.Location = new System.Drawing.Point(299, 105);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(47, 18);
+            this.label29.Size = new System.Drawing.Size(56, 18);
             this.label29.TabIndex = 37;
             this.label29.Text = "Filter :";
             // 
             // CustomerSearchBox2
             // 
-            this.CustomerSearchBox2.Location = new System.Drawing.Point(480, 105);
+            this.CustomerSearchBox2.Location = new System.Drawing.Point(354, 105);
             this.CustomerSearchBox2.Name = "CustomerSearchBox2";
             this.CustomerSearchBox2.Size = new System.Drawing.Size(292, 20);
             this.CustomerSearchBox2.TabIndex = 36;
@@ -497,6 +500,7 @@
             // item_panel
             // 
             this.item_panel.BackColor = System.Drawing.Color.White;
+            this.item_panel.Controls.Add(this.itemSearchFilter);
             this.item_panel.Controls.Add(this.label34);
             this.item_panel.Controls.Add(this.ItemDataGrid);
             this.item_panel.Controls.Add(this.ItemSearch);
@@ -527,10 +531,10 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label34.Location = new System.Drawing.Point(508, 52);
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label34.Location = new System.Drawing.Point(381, 52);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(47, 18);
+            this.label34.Size = new System.Drawing.Size(56, 18);
             this.label34.TabIndex = 38;
             this.label34.Text = "Filter :";
             // 
@@ -550,7 +554,7 @@
             // 
             // ItemSearch
             // 
-            this.ItemSearch.Location = new System.Drawing.Point(561, 53);
+            this.ItemSearch.Location = new System.Drawing.Point(434, 53);
             this.ItemSearch.Name = "ItemSearch";
             this.ItemSearch.Size = new System.Drawing.Size(282, 20);
             this.ItemSearch.TabIndex = 27;
@@ -559,11 +563,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label13.Location = new System.Drawing.Point(993, 131);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(118, 18);
+            this.label13.Size = new System.Drawing.Size(161, 18);
             this.label13.TabIndex = 22;
             this.label13.Text = "ITEM ENTRY FORM";
             // 
@@ -579,7 +583,7 @@
             // 
             this.item_back.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.item_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.item_back.Font = new System.Drawing.Font("Helvetica Neue", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.item_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold);
             this.item_back.Location = new System.Drawing.Point(849, 126);
             this.item_back.Name = "item_back";
             this.item_back.Size = new System.Drawing.Size(65, 23);
@@ -591,11 +595,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label14.Location = new System.Drawing.Point(891, 204);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 18);
+            this.label14.Size = new System.Drawing.Size(89, 18);
             this.label14.TabIndex = 0;
             this.label14.Text = "Item Name";
             // 
@@ -603,7 +607,7 @@
             // 
             this.Item_submit.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.Item_submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Item_submit.Font = new System.Drawing.Font("Helvetica Neue", 8.249999F, System.Drawing.FontStyle.Bold);
+            this.Item_submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold);
             this.Item_submit.Location = new System.Drawing.Point(946, 543);
             this.Item_submit.Margin = new System.Windows.Forms.Padding(2);
             this.Item_submit.Name = "Item_submit";
@@ -616,66 +620,66 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label15.Location = new System.Drawing.Point(891, 239);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 18);
+            this.label15.Size = new System.Drawing.Size(71, 18);
             this.label15.TabIndex = 2;
             this.label15.Text = "Barcode";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label16.Location = new System.Drawing.Point(891, 177);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(32, 18);
+            this.label16.Size = new System.Drawing.Size(42, 18);
             this.label16.TabIndex = 3;
             this.label16.Text = "SKU";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label17.Location = new System.Drawing.Point(891, 277);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(77, 18);
+            this.label17.Size = new System.Drawing.Size(95, 18);
             this.label17.TabIndex = 4;
             this.label17.Text = "Retail Price";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label18.Location = new System.Drawing.Point(891, 380);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 18);
+            this.label18.Size = new System.Drawing.Size(94, 18);
             this.label18.TabIndex = 5;
             this.label18.Text = "Description";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label19.Location = new System.Drawing.Point(891, 349);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 18);
+            this.label19.Size = new System.Drawing.Size(96, 18);
             this.label19.TabIndex = 6;
             this.label19.Text = "Stock Level";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Helvetica Neue", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label20.Location = new System.Drawing.Point(891, 312);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(100, 18);
+            this.label20.Size = new System.Drawing.Size(123, 18);
             this.label20.TabIndex = 7;
             this.label20.Text = "Purchase Price";
             // 
@@ -1243,6 +1247,26 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1904, 1041);
             this.flowLayoutPanel2.TabIndex = 27;
             // 
+            // itemSearchFilter
+            // 
+            this.itemSearchFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemSearchFilter.FormattingEnabled = true;
+            this.itemSearchFilter.Items.AddRange(new object[] {
+            "Item Name",
+            "SKU"});
+            this.itemSearchFilter.Location = new System.Drawing.Point(722, 53);
+            this.itemSearchFilter.Name = "itemSearchFilter";
+            this.itemSearchFilter.Size = new System.Drawing.Size(121, 21);
+            this.itemSearchFilter.TabIndex = 39;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(652, 104);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 38;
+            // 
             // RealityGlitch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1383,6 +1407,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.ComboBox itemSearchFilter;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
