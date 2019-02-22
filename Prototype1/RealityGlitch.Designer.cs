@@ -575,6 +575,7 @@
             this.ItemDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ItemDataGrid.Size = new System.Drawing.Size(827, 672);
             this.ItemDataGrid.TabIndex = 28;
+            this.ItemDataGrid.SelectionChanged += new System.EventHandler(this.ItemDataGrid_SelectionChanged);
             // 
             // ItemSearch
             // 

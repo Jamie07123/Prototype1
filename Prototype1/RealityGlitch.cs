@@ -30,10 +30,7 @@ namespace Prototype1
             UpdateItemGrid("");
             UpdateCustomerDataGrid("");
             UpdateCustomerGrid("");
-
             //-------------------------------------------------------//
-
-
             orderId = -1; //Clears the orderID on startup
         }
 
@@ -139,6 +136,33 @@ namespace Prototype1
                 itemIdSelected = Convert.ToInt32(i);
             }
         }
+
+        //-----------------------------------------------------------------------------------------------------------------//
+        //Populate Text boxes for database editting//
+        //-----------------------------------------------------------------------------------------------------------------//
+        private void ItemDataGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            PopulateItemTextboxes();
+        }
+
+        private void PopulateItemTextboxes()
+        {
+            if (ItemDataGrid.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = ItemDataGrid.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = ItemDataGrid.Rows[selectedrowindex];
+
+                skubox.Text = Convert.ToString(selectedRow.Cells["SKU"].Value);
+                itemtitlebox.Text = Convert.ToString(selectedRow.Cells["ItemName"].Value);
+                barcodebox.Text = Convert.ToString(selectedRow.Cells["Barcode"].Value);
+                retailbox.Text = Convert.ToString(selectedRow.Cells["RetailPrice"].Value);
+                purchasebox.Text = Convert.ToString(selectedRow.Cells["PurchasePrice"].Value);
+                stockbox.Text = Convert.ToString(selectedRow.Cells["StockLvl"].Value);
+                descbox.Text = Convert.ToString(selectedRow.Cells["Description"].Value);
+            }
+        }
+
 
         //-----------------------------------------------------------------------------------------------------------------//
         //Creates new order and adds selected item to a basket//
