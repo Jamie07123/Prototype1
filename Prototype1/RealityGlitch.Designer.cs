@@ -55,6 +55,7 @@
             this.Customer_submit = new System.Windows.Forms.Button();
             this.titlebox = new System.Windows.Forms.ComboBox();
             this.customer_panel = new System.Windows.Forms.Panel();
+            this.customerSearchFilter = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.CustomerSearchBox2 = new System.Windows.Forms.TextBox();
             this.CustomerGridView2 = new System.Windows.Forms.DataGridView();
@@ -62,6 +63,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.item = new System.Windows.Forms.TabPage();
             this.item_panel = new System.Windows.Forms.Panel();
+            this.itemSearchFilter = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.ItemDataGrid = new System.Windows.Forms.DataGridView();
             this.ItemSearch = new System.Windows.Forms.TextBox();
@@ -127,8 +129,6 @@
             this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSet1 = new Prototype1.Database1DataSet();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.itemSearchFilter = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.customer_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerGridView2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -394,7 +394,7 @@
             // customer_panel
             // 
             this.customer_panel.BackColor = System.Drawing.Color.White;
-            this.customer_panel.Controls.Add(this.comboBox1);
+            this.customer_panel.Controls.Add(this.customerSearchFilter);
             this.customer_panel.Controls.Add(this.label29);
             this.customer_panel.Controls.Add(this.CustomerSearchBox2);
             this.customer_panel.Controls.Add(this.CustomerGridView2);
@@ -430,6 +430,18 @@
             this.customer_panel.Size = new System.Drawing.Size(1200, 789);
             this.customer_panel.TabIndex = 25;
             this.customer_panel.Visible = false;
+            // 
+            // customerSearchFilter
+            // 
+            this.customerSearchFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customerSearchFilter.FormattingEnabled = true;
+            this.customerSearchFilter.Items.AddRange(new object[] {
+            "Name",
+            "Id"});
+            this.customerSearchFilter.Location = new System.Drawing.Point(652, 104);
+            this.customerSearchFilter.Name = "customerSearchFilter";
+            this.customerSearchFilter.Size = new System.Drawing.Size(121, 21);
+            this.customerSearchFilter.TabIndex = 38;
             // 
             // label29
             // 
@@ -527,6 +539,18 @@
             this.item_panel.Size = new System.Drawing.Size(1193, 770);
             this.item_panel.TabIndex = 26;
             this.item_panel.Visible = false;
+            // 
+            // itemSearchFilter
+            // 
+            this.itemSearchFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemSearchFilter.FormattingEnabled = true;
+            this.itemSearchFilter.Items.AddRange(new object[] {
+            "Item Name",
+            "SKU"});
+            this.itemSearchFilter.Location = new System.Drawing.Point(722, 53);
+            this.itemSearchFilter.Name = "itemSearchFilter";
+            this.itemSearchFilter.Size = new System.Drawing.Size(121, 21);
+            this.itemSearchFilter.TabIndex = 39;
             // 
             // label34
             // 
@@ -1247,26 +1271,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1904, 1041);
             this.flowLayoutPanel2.TabIndex = 27;
             // 
-            // itemSearchFilter
-            // 
-            this.itemSearchFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.itemSearchFilter.FormattingEnabled = true;
-            this.itemSearchFilter.Items.AddRange(new object[] {
-            "Item Name",
-            "SKU"});
-            this.itemSearchFilter.Location = new System.Drawing.Point(722, 53);
-            this.itemSearchFilter.Name = "itemSearchFilter";
-            this.itemSearchFilter.Size = new System.Drawing.Size(121, 21);
-            this.itemSearchFilter.TabIndex = 39;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(652, 104);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 38;
-            // 
             // RealityGlitch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1408,7 +1412,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ComboBox itemSearchFilter;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox customerSearchFilter;
     }
 }
 

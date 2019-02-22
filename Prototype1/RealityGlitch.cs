@@ -21,13 +21,19 @@ namespace Prototype1
         {
             InitializeComponent();
             titlebox.Text = "Mr";   //Sets title combobox default value
+            //Defualt values for combo boxes// 
+            itemSearchFilter.SelectedIndex = 0;
+            customerSearchFilter.SelectedIndex = 0;
+            //-------------------------------------------------------//
             //Sets all datagridviews to display all values on startup//
             UpdateItemDataGrid("");
-            UpdateCustomerDataGrid("");
-            itemSearchFilter.SelectedIndex = 0;
-            UpdateCustomerGrid("");
             UpdateItemGrid("");
+            UpdateCustomerDataGrid("");
+            UpdateCustomerGrid("");
+
             //-------------------------------------------------------//
+
+
             orderId = -1; //Clears the orderID on startup
         }
 
@@ -154,7 +160,7 @@ namespace Prototype1
             {
                 if(itemQuantity.Text == "")
                 {
-                    MessageBox.Show("ERROR - PLEASE ENETER ITEM QUANTITY");
+                    MessageBox.Show("ERROR - PLEASE ENTER ITEM QUANTITY");
                 }
                 else
                 {
@@ -175,10 +181,10 @@ namespace Prototype1
             UpdateCustomerDataGrid(CustomerSearchBox.Text);
         }
 
-        public void UpdateCustomerGrid(string CustomerSearch)
+        public void UpdateCustomerDataGrid(string CustomerSearch)
         {
-            CustomerGridView2.DataSource = null;
-            CustomerGridView2.DataSource = crud.PopulateCustomerGrid(CustomerSearch);
+            CustomerGridView.DataSource = null;
+            CustomerGridView.DataSource = crud.SearchOrdersByCustomer(CustomerSearch);
         }
 
         //Item datagrid view on orders screen
@@ -199,10 +205,19 @@ namespace Prototype1
             UpdateCustomerGrid(CustomerSearchBox2.Text);
         }
 
-        public void UpdateCustomerDataGrid(string CustomerSearch)
+        public void UpdateCustomerGrid(string CustomerSearch)
         {
-            CustomerGridView.DataSource = null;
-            CustomerGridView.DataSource = crud.SearchOrdersByCustomer(CustomerSearch);
+            if (customerSearchFilter.SelectedIndex == 0)
+            {
+                CustomerGridView2.DataSource = null;
+                CustomerGridView2.DataSource = crud.PopulateCustomerGridByName(CustomerSearch);
+            }
+            if (customerSearchFilter.SelectedIndex == 1)
+            {
+                CustomerGridView2.DataSource = null;
+                CustomerGridView2.DataSource = crud.PopulateCustomerGridById(CustomerSearch);
+            }
+
         }
 
         //Item datagridview on item screen

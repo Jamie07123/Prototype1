@@ -150,15 +150,29 @@ namespace Prototype_Library
             return dt;
         }
 
-        public DataTable PopulateCustomerGrid(string forname)
+        public DataTable PopulateCustomerGridByName(string forname)
         {
             var dt = new DataTable();
             using (var con = new SqlConnection(connectionString))
-            using (var cmd = new SqlCommand("PopulateCustomerGrid", con))
+            using (var cmd = new SqlCommand("PopulateCustomerGridByName", con))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(
                 new SqlParameter("@forname", forname));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+        public DataTable PopulateCustomerGridById(string id)
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("PopulateCustomerGridById", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(
+                new SqlParameter("@id", id));
                 var da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }
