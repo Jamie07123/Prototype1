@@ -91,7 +91,7 @@ namespace Prototype1
             Customer c = new Customer(titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
             crud.AddCustomer(c);
             UpdateCustomerGrid("");
-        }
+        } 
 
         private void Manufacturer_submit_Click(object sender, EventArgs e)
         {
