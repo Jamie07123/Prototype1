@@ -135,6 +135,57 @@ namespace Prototype_Library
             }
         }
 
+        public void UpdateCustomerEntry(int id, string t, string f, string s, string c, string a1, string a2, string to, string cc, string p, string tele, string e)
+        {
+            //using (var con = new SqlConnection(connectionString))
+            //using (var cmd = new SqlCommand("UpdateCustomerEntry", con))
+            //{
+            //    con.Open();
+            //    cmd.CommandType = CommandType.StoredProcedure;
+            //    cmd.Parameters.Add(new SqlParameter("@id", id));
+            //    cmd.Parameters.Add(new SqlParameter("@title", t));
+            //    cmd.Parameters.Add(new SqlParameter("@forname", f));
+            //    cmd.Parameters.Add(new SqlParameter("@surname", s));
+            //    cmd.Parameters.Add(new SqlParameter("@country", c));
+            //    cmd.Parameters.Add(new SqlParameter("@addressline1", a1));
+            //    cmd.Parameters.Add(new SqlParameter("@addressline2", a2));
+            //    cmd.Parameters.Add(new SqlParameter("@town", to));
+            //    cmd.Parameters.Add(new SqlParameter("@county", cc));
+            //    cmd.Parameters.Add(new SqlParameter("@postcode", p));
+            //    cmd.Parameters.Add(new SqlParameter("@telephonenum", tele));
+            //    cmd.Parameters.Add(new SqlParameter("@email", e));
+            //    cmd.ExecuteNonQuery();
+
+            //}
+            using (var con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                var cmd = new SqlCommand("UPDATE Customer " +
+                    "SET Title = @Title, Forname = @Forname, Surname = @Surname, Country = @Country , County = @County, " +
+                    "AddressLine1 = @Addressline1, AddressLine2 = @Addressline2, Town = @Town, Postcode = @Postcode, TelephoneNum = @Telephonenum, " +
+                    "Email = @Email WHERE CustomerId = @id", con);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@Title", t);
+                cmd.Parameters.AddWithValue("@Forname", f);
+                cmd.Parameters.AddWithValue("@surname", s);
+                cmd.Parameters.AddWithValue("@Country", c);
+                cmd.Parameters.AddWithValue("@AddressLine1", a1);
+                cmd.Parameters.AddWithValue("@AddressLine2", a2);
+                cmd.Parameters.AddWithValue("@Town", to);
+                cmd.Parameters.AddWithValue("@County", cc);
+                cmd.Parameters.AddWithValue("@Postcode", p);
+                cmd.Parameters.AddWithValue("@TelephoneNum", tele);
+                cmd.Parameters.AddWithValue("@Email", e);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+
+        }
+
         public DataTable SearchOrdersByCustomer(string forname)
         {
             var dt = new DataTable();

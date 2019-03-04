@@ -14,6 +14,7 @@ namespace Prototype1
     public partial class RealityGlitch : Form
     {
         CRUD crud = new CRUD();
+        int customerid;
         int custIdSelected;
         int itemIdSelected;
         int orderId;
@@ -157,6 +158,7 @@ namespace Prototype1
 
                 DataGridViewRow selectedRow = ItemDataGrid.Rows[selectedrowindex];
 
+                int itemid = Convert.ToInt32(selectedRow.Cells["ItemId"].Value);
                 skubox.Text = Convert.ToString(selectedRow.Cells["SKU"].Value);
                 itemtitlebox.Text = Convert.ToString(selectedRow.Cells["ItemName"].Value);
                 barcodebox.Text = Convert.ToString(selectedRow.Cells["Barcode"].Value);
@@ -174,6 +176,7 @@ namespace Prototype1
 
                 DataGridViewRow selectedRow = CustomerGridView2.Rows[selectedrowindex];
 
+                int customerid = Convert.ToInt32(selectedRow.Cells["CustomerId"].Value);
                 titlebox.Text = Convert.ToString(selectedRow.Cells["Title"].Value);
                 fornamebox.Text = Convert.ToString(selectedRow.Cells["Forname"].Value);
                 surnamebox.Text = Convert.ToString(selectedRow.Cells["Surname"].Value);
@@ -294,6 +297,12 @@ namespace Prototype1
         private void PopulateOrderGrid(int id)
         {
             OrderGridView.DataSource = crud.PopulateOrdersGrid(id);
+        }
+
+        private void UpdateCustomer_Click(object sender, EventArgs e)
+        {
+            crud.UpdateCustomerEntry(customerid, titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
+            UpdateCustomerGrid("");
         }
 
 
