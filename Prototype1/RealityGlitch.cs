@@ -14,6 +14,7 @@ namespace Prototype1
     public partial class RealityGlitch : Form
     {
         CRUD crud = new CRUD();
+        int orderID;
         int custID;
         int itemID;
         int custIdSelected;
@@ -144,6 +145,20 @@ namespace Prototype1
         //Pulling ID when selected in the Individual datagridview//
         //-----------------------------------------------------------------------------------------------------------------//
 
+        private void OrderIdPull()
+        {
+            if (OrderGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = OrderGridView.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = OrderGridView.Rows[selectedrowindex];
+
+                string a = Convert.ToString(selectedRow.Cells["OrderId"].Value);
+
+                orderID = Convert.ToInt32(a);
+            }
+        }
+
         private void CustomerIdPull()
         {
             if (CustomerGridView2.SelectedCells.Count > 0)
@@ -171,10 +186,14 @@ namespace Prototype1
                 itemID = Convert.ToInt32(a);
             }
         }
-        
+
         //-----------------------------------------------------------------------------------------------------------------//
         //Populate Text boxes for database editting//
         //-----------------------------------------------------------------------------------------------------------------//
+        private void OrderGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            OrderIdPull();
+        }
         private void ItemDataGrid_SelectionChanged(object sender, EventArgs e)
         {
             ItemIdPull();
@@ -231,7 +250,7 @@ namespace Prototype1
         //Creates new order and adds selected item to a basket//
         //-----------------------------------------------------------------------------------------------------------------//
 
-        private void addItem_Click(object sender, EventArgs e)
+        private void addOrder_Click(object sender, EventArgs e)
         {
             int selectedrowindex = ItemGridView.SelectedCells[0].RowIndex;
             DataGridViewRow itemRow = ItemGridView.Rows[selectedrowindex];
@@ -334,6 +353,10 @@ namespace Prototype1
             OrderGridView.DataSource = crud.PopulateOrdersGrid(id);
         }
 
+        //-----------------------------------------------------------------------------------------------------------------//
+        //Editing Database Entries//
+        //-----------------------------------------------------------------------------------------------------------------//
+
         private void UpdateCustomer_Click(object sender, EventArgs e)
         {
             crud.UpdateCustomerEntry(custID, titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
@@ -346,6 +369,14 @@ namespace Prototype1
             UpdateItemGrid("");
         }
 
+        private void UpdateOrder_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = ItemGridView.SelectedCells[0].RowIndex;
+            DataGridViewRow itemRow = ItemGridView.Rows[selectedrowindex];
+            string retailprice = Convert.ToString(itemRow.Cells["RetailPrice"].Value);
+            crud.UpdateOrderEntry(orderID, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
+            
+        }
 
         //-----------------------------------------------------------------------------------------------------------------//
     }

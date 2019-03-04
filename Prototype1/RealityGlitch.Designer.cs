@@ -64,6 +64,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.item = new System.Windows.Forms.TabPage();
             this.item_panel = new System.Windows.Forms.Panel();
+            this.UpdateItem = new System.Windows.Forms.Button();
             this.itemSearchFilter = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.ItemDataGrid = new System.Windows.Forms.DataGridView();
@@ -91,7 +92,7 @@
             this.OrderGridView = new System.Windows.Forms.DataGridView();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.addItem = new System.Windows.Forms.Button();
+            this.addOrder = new System.Windows.Forms.Button();
             this.itemQuantity = new System.Windows.Forms.TextBox();
             this.ItemGridView = new System.Windows.Forms.DataGridView();
             this.CustomerGridView = new System.Windows.Forms.DataGridView();
@@ -130,7 +131,7 @@
             this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSet1 = new Prototype1.Database1DataSet();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.UpdateItem = new System.Windows.Forms.Button();
+            this.UpdateOrder = new System.Windows.Forms.Button();
             this.customer_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerGridView2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -432,12 +433,11 @@
             this.customer_panel.Name = "customer_panel";
             this.customer_panel.Size = new System.Drawing.Size(2800, 1760);
             this.customer_panel.TabIndex = 25;
-            this.customer_panel.Visible = false;
             // 
             // UpdateCustomer
             // 
             this.UpdateCustomer.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateCustomer.Location = new System.Drawing.Point(2167, 1270);
+            this.UpdateCustomer.Location = new System.Drawing.Point(2168, 1269);
             this.UpdateCustomer.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.UpdateCustomer.Name = "UpdateCustomer";
             this.UpdateCustomer.Size = new System.Drawing.Size(413, 109);
@@ -562,7 +562,17 @@
             this.item_panel.Name = "item_panel";
             this.item_panel.Size = new System.Drawing.Size(2784, 1718);
             this.item_panel.TabIndex = 26;
-            this.item_panel.Visible = false;
+            // 
+            // UpdateItem
+            // 
+            this.UpdateItem.Location = new System.Drawing.Point(2207, 1363);
+            this.UpdateItem.Margin = new System.Windows.Forms.Padding(2);
+            this.UpdateItem.Name = "UpdateItem";
+            this.UpdateItem.Size = new System.Drawing.Size(413, 120);
+            this.UpdateItem.TabIndex = 40;
+            this.UpdateItem.Text = "Update";
+            this.UpdateItem.UseVisualStyleBackColor = true;
+            this.UpdateItem.Click += new System.EventHandler(this.UpdateItem_Click);
             // 
             // itemSearchFilter
             // 
@@ -764,7 +774,7 @@
             // 
             // barcodebox
             // 
-            this.barcodebox.Location = new System.Drawing.Point(2408, 533);
+            this.barcodebox.Location = new System.Drawing.Point(464, 259);
             this.barcodebox.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.barcodebox.Name = "barcodebox";
             this.barcodebox.Size = new System.Drawing.Size(338, 35);
@@ -815,10 +825,11 @@
             // Order_Panel
             // 
             this.Order_Panel.BackColor = System.Drawing.Color.White;
+            this.Order_Panel.Controls.Add(this.UpdateOrder);
             this.Order_Panel.Controls.Add(this.OrderGridView);
             this.Order_Panel.Controls.Add(this.label32);
             this.Order_Panel.Controls.Add(this.label33);
-            this.Order_Panel.Controls.Add(this.addItem);
+            this.Order_Panel.Controls.Add(this.addOrder);
             this.Order_Panel.Controls.Add(this.itemQuantity);
             this.Order_Panel.Controls.Add(this.ItemGridView);
             this.Order_Panel.Controls.Add(this.CustomerGridView);
@@ -845,6 +856,7 @@
             this.OrderGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.OrderGridView.Size = new System.Drawing.Size(1792, 1486);
             this.OrderGridView.TabIndex = 34;
+            this.OrderGridView.SelectionChanged += new System.EventHandler(this.OrderGridView_SelectionChanged);
             // 
             // label32
             // 
@@ -868,17 +880,17 @@
             this.label33.TabIndex = 33;
             this.label33.Text = "Orders";
             // 
-            // addItem
+            // addOrder
             // 
-            this.addItem.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addItem.Location = new System.Drawing.Point(2364, 1066);
-            this.addItem.Margin = new System.Windows.Forms.Padding(7);
-            this.addItem.Name = "addItem";
-            this.addItem.Size = new System.Drawing.Size(110, 51);
-            this.addItem.TabIndex = 10;
-            this.addItem.Text = "Add";
-            this.addItem.UseVisualStyleBackColor = true;
-            this.addItem.Click += new System.EventHandler(this.addItem_Click);
+            this.addOrder.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addOrder.Location = new System.Drawing.Point(2364, 1066);
+            this.addOrder.Margin = new System.Windows.Forms.Padding(7);
+            this.addOrder.Name = "addOrder";
+            this.addOrder.Size = new System.Drawing.Size(110, 51);
+            this.addOrder.TabIndex = 10;
+            this.addOrder.Text = "Add";
+            this.addOrder.UseVisualStyleBackColor = true;
+            this.addOrder.Click += new System.EventHandler(this.addOrder_Click);
             // 
             // itemQuantity
             // 
@@ -988,7 +1000,6 @@
             this.supplier_panel.Name = "supplier_panel";
             this.supplier_panel.Size = new System.Drawing.Size(938, 1129);
             this.supplier_panel.TabIndex = 28;
-            this.supplier_panel.Visible = false;
             // 
             // supplier_back
             // 
@@ -1100,7 +1111,6 @@
             this.manufacturer_panel.Name = "manufacturer_panel";
             this.manufacturer_panel.Size = new System.Drawing.Size(938, 1129);
             this.manufacturer_panel.TabIndex = 27;
-            this.manufacturer_panel.Visible = false;
             // 
             // manufacturer_back
             // 
@@ -1315,18 +1325,20 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(7);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(3844, 2113);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(3323, 1858);
             this.flowLayoutPanel2.TabIndex = 27;
             // 
-            // UpdateItem
+            // UpdateOrder
             // 
-            this.UpdateItem.Location = new System.Drawing.Point(2207, 1363);
-            this.UpdateItem.Name = "UpdateItem";
-            this.UpdateItem.Size = new System.Drawing.Size(413, 121);
-            this.UpdateItem.TabIndex = 40;
-            this.UpdateItem.Text = "Update";
-            this.UpdateItem.UseVisualStyleBackColor = true;
-            this.UpdateItem.Click += new System.EventHandler(this.UpdateItem_Click);
+            this.UpdateOrder.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateOrder.Location = new System.Drawing.Point(2364, 1199);
+            this.UpdateOrder.Margin = new System.Windows.Forms.Padding(7);
+            this.UpdateOrder.Name = "UpdateOrder";
+            this.UpdateOrder.Size = new System.Drawing.Size(110, 51);
+            this.UpdateOrder.TabIndex = 35;
+            this.UpdateOrder.Text = "Update";
+            this.UpdateOrder.UseVisualStyleBackColor = true;
+            this.UpdateOrder.Click += new System.EventHandler(this.UpdateOrder_Click);
             // 
             // RealityGlitch
             // 
@@ -1334,7 +1346,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(3844, 2113);
+            this.ClientSize = new System.Drawing.Size(3323, 1858);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -1450,7 +1462,7 @@
         private System.Windows.Forms.DataGridView CustomerGridView;
         private System.Windows.Forms.DataGridView ItemGridView;
         private Database1DataSet database1DataSet1;
-        private System.Windows.Forms.Button addItem;
+        private System.Windows.Forms.Button addOrder;
         private System.Windows.Forms.TextBox itemQuantity;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -1472,6 +1484,7 @@
         private System.Windows.Forms.ComboBox customerSearchFilter;
         private System.Windows.Forms.Button UpdateCustomer;
         private System.Windows.Forms.Button UpdateItem;
+        private System.Windows.Forms.Button UpdateOrder;
     }
 }
 

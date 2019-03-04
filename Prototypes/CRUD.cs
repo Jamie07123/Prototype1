@@ -135,6 +135,22 @@ namespace Prototype_Library
             }
         }
 
+        public void UpdateOrderEntry(int id, int iid, int q, string rp)
+        {
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("UpdateOrderEntry", con))
+            {
+                con.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@id", id));
+                cmd.Parameters.Add(new SqlParameter("@itemid", iid));
+                cmd.Parameters.Add(new SqlParameter("@quantity", q));
+                cmd.Parameters.Add(new SqlParameter("@retailprice", rp));
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
         public void UpdateCustomerEntry(int id, string t, string f, string s, string c, string a1, string a2, string to, string cc, string p, string tele, string e)
         {
             using (var con = new SqlConnection(connectionString))
