@@ -55,6 +55,7 @@
             this.Customer_submit = new System.Windows.Forms.Button();
             this.titlebox = new System.Windows.Forms.ComboBox();
             this.customer_panel = new System.Windows.Forms.Panel();
+            this.UpdateCustomer = new System.Windows.Forms.Button();
             this.customerSearchFilter = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.CustomerSearchBox2 = new System.Windows.Forms.TextBox();
@@ -129,7 +130,7 @@
             this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSet1 = new Prototype1.Database1DataSet();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.UpdateCustomer = new System.Windows.Forms.Button();
+            this.UpdateItem = new System.Windows.Forms.Button();
             this.customer_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerGridView2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -433,6 +434,18 @@
             this.customer_panel.TabIndex = 25;
             this.customer_panel.Visible = false;
             // 
+            // UpdateCustomer
+            // 
+            this.UpdateCustomer.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateCustomer.Location = new System.Drawing.Point(2167, 1270);
+            this.UpdateCustomer.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.UpdateCustomer.Name = "UpdateCustomer";
+            this.UpdateCustomer.Size = new System.Drawing.Size(413, 109);
+            this.UpdateCustomer.TabIndex = 39;
+            this.UpdateCustomer.Text = "Update";
+            this.UpdateCustomer.UseVisualStyleBackColor = true;
+            this.UpdateCustomer.Click += new System.EventHandler(this.UpdateCustomer_Click);
+            // 
             // customerSearchFilter
             // 
             this.customerSearchFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -441,7 +454,7 @@
             "Name",
             "Id"});
             this.customerSearchFilter.Location = new System.Drawing.Point(1521, 232);
-            this.customerSearchFilter.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.customerSearchFilter.Margin = new System.Windows.Forms.Padding(7);
             this.customerSearchFilter.Name = "customerSearchFilter";
             this.customerSearchFilter.Size = new System.Drawing.Size(277, 37);
             this.customerSearchFilter.TabIndex = 38;
@@ -460,7 +473,7 @@
             // CustomerSearchBox2
             // 
             this.CustomerSearchBox2.Location = new System.Drawing.Point(826, 234);
-            this.CustomerSearchBox2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.CustomerSearchBox2.Margin = new System.Windows.Forms.Padding(7);
             this.CustomerSearchBox2.Name = "CustomerSearchBox2";
             this.CustomerSearchBox2.Size = new System.Drawing.Size(676, 35);
             this.CustomerSearchBox2.TabIndex = 36;
@@ -471,7 +484,7 @@
             this.CustomerGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CustomerGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustomerGridView2.Location = new System.Drawing.Point(9, 292);
-            this.CustomerGridView2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.CustomerGridView2.Margin = new System.Windows.Forms.Padding(7);
             this.CustomerGridView2.MultiSelect = false;
             this.CustomerGridView2.Name = "CustomerGridView2";
             this.CustomerGridView2.ReadOnly = true;
@@ -484,7 +497,7 @@
             // 
             this.customer_back.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_back.Location = new System.Drawing.Point(1941, 85);
-            this.customer_back.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.customer_back.Margin = new System.Windows.Forms.Padding(7);
             this.customer_back.Name = "customer_back";
             this.customer_back.Size = new System.Drawing.Size(152, 51);
             this.customer_back.TabIndex = 25;
@@ -500,7 +513,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(460, 7);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(7);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(2835, 2312);
@@ -512,9 +525,9 @@
             this.item.Controls.Add(this.item_panel);
             this.item.ForeColor = System.Drawing.Color.Black;
             this.item.Location = new System.Drawing.Point(10, 47);
-            this.item.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.item.Margin = new System.Windows.Forms.Padding(7);
             this.item.Name = "item";
-            this.item.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.item.Padding = new System.Windows.Forms.Padding(7);
             this.item.Size = new System.Drawing.Size(2815, 2255);
             this.item.TabIndex = 0;
             this.item.Text = "item";
@@ -522,6 +535,7 @@
             // item_panel
             // 
             this.item_panel.BackColor = System.Drawing.Color.White;
+            this.item_panel.Controls.Add(this.UpdateItem);
             this.item_panel.Controls.Add(this.itemSearchFilter);
             this.item_panel.Controls.Add(this.label34);
             this.item_panel.Controls.Add(this.ItemDataGrid);
@@ -558,7 +572,7 @@
             "Item Name",
             "SKU"});
             this.itemSearchFilter.Location = new System.Drawing.Point(1685, 118);
-            this.itemSearchFilter.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.itemSearchFilter.Margin = new System.Windows.Forms.Padding(7);
             this.itemSearchFilter.Name = "itemSearchFilter";
             this.itemSearchFilter.Size = new System.Drawing.Size(277, 37);
             this.itemSearchFilter.TabIndex = 39;
@@ -581,7 +595,7 @@
             this.ItemDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ItemDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ItemDataGrid.Location = new System.Drawing.Point(37, 176);
-            this.ItemDataGrid.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.ItemDataGrid.Margin = new System.Windows.Forms.Padding(7);
             this.ItemDataGrid.MultiSelect = false;
             this.ItemDataGrid.Name = "ItemDataGrid";
             this.ItemDataGrid.ReadOnly = true;
@@ -593,7 +607,7 @@
             // ItemSearch
             // 
             this.ItemSearch.Location = new System.Drawing.Point(1013, 118);
-            this.ItemSearch.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.ItemSearch.Margin = new System.Windows.Forms.Padding(7);
             this.ItemSearch.Name = "ItemSearch";
             this.ItemSearch.Size = new System.Drawing.Size(653, 35);
             this.ItemSearch.TabIndex = 27;
@@ -624,7 +638,7 @@
             this.item_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.item_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Bold);
             this.item_back.Location = new System.Drawing.Point(1981, 281);
-            this.item_back.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.item_back.Margin = new System.Windows.Forms.Padding(7);
             this.item_back.Name = "item_back";
             this.item_back.Size = new System.Drawing.Size(152, 51);
             this.item_back.TabIndex = 25;
@@ -778,9 +792,9 @@
             this.tabPage4.Controls.Add(this.customer_panel);
             this.tabPage4.ForeColor = System.Drawing.Color.White;
             this.tabPage4.Location = new System.Drawing.Point(10, 47);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(7);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(7);
             this.tabPage4.Size = new System.Drawing.Size(2815, 2255);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "customer";
@@ -791,10 +805,10 @@
             this.tabPage5.Controls.Add(this.Order_Panel);
             this.tabPage5.ForeColor = System.Drawing.Color.White;
             this.tabPage5.Location = new System.Drawing.Point(10, 47);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(7);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.tabPage5.Size = new System.Drawing.Size(2815, 2256);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(7);
+            this.tabPage5.Size = new System.Drawing.Size(2815, 2255);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "order";
             // 
@@ -824,7 +838,7 @@
             this.OrderGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.OrderGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrderGridView.Location = new System.Drawing.Point(14, 270);
-            this.OrderGridView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.OrderGridView.Margin = new System.Windows.Forms.Padding(7);
             this.OrderGridView.MultiSelect = false;
             this.OrderGridView.Name = "OrderGridView";
             this.OrderGridView.ReadOnly = true;
@@ -858,7 +872,7 @@
             // 
             this.addItem.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addItem.Location = new System.Drawing.Point(2364, 1066);
-            this.addItem.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.addItem.Margin = new System.Windows.Forms.Padding(7);
             this.addItem.Name = "addItem";
             this.addItem.Size = new System.Drawing.Size(110, 51);
             this.addItem.TabIndex = 10;
@@ -869,7 +883,7 @@
             // itemQuantity
             // 
             this.itemQuantity.Location = new System.Drawing.Point(2252, 1008);
-            this.itemQuantity.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.itemQuantity.Margin = new System.Windows.Forms.Padding(7);
             this.itemQuantity.Name = "itemQuantity";
             this.itemQuantity.Size = new System.Drawing.Size(333, 35);
             this.itemQuantity.TabIndex = 9;
@@ -881,7 +895,7 @@
             this.ItemGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ItemGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ItemGridView.Location = new System.Drawing.Point(2060, 598);
-            this.ItemGridView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.ItemGridView.Margin = new System.Windows.Forms.Padding(7);
             this.ItemGridView.MultiSelect = false;
             this.ItemGridView.Name = "ItemGridView";
             this.ItemGridView.ReadOnly = true;
@@ -897,7 +911,7 @@
             this.CustomerGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CustomerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustomerGridView.Location = new System.Drawing.Point(2060, 103);
-            this.CustomerGridView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.CustomerGridView.Margin = new System.Windows.Forms.Padding(7);
             this.CustomerGridView.MultiSelect = false;
             this.CustomerGridView.Name = "CustomerGridView";
             this.CustomerGridView.ReadOnly = true;
@@ -931,7 +945,7 @@
             // ItemSearchBox
             // 
             this.ItemSearchBox.Location = new System.Drawing.Point(1813, 598);
-            this.ItemSearchBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.ItemSearchBox.Margin = new System.Windows.Forms.Padding(7);
             this.ItemSearchBox.Name = "ItemSearchBox";
             this.ItemSearchBox.Size = new System.Drawing.Size(228, 35);
             this.ItemSearchBox.TabIndex = 4;
@@ -940,7 +954,7 @@
             // CustomerSearchBox
             // 
             this.CustomerSearchBox.Location = new System.Drawing.Point(1813, 103);
-            this.CustomerSearchBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.CustomerSearchBox.Margin = new System.Windows.Forms.Padding(7);
             this.CustomerSearchBox.Name = "CustomerSearchBox";
             this.CustomerSearchBox.Size = new System.Drawing.Size(228, 35);
             this.CustomerSearchBox.TabIndex = 3;
@@ -951,9 +965,9 @@
             this.tabPage1.Controls.Add(this.supplier_panel);
             this.tabPage1.Controls.Add(this.manufacturer_panel);
             this.tabPage1.Location = new System.Drawing.Point(10, 47);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(7);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(2815, 2256);
+            this.tabPage1.Size = new System.Drawing.Size(2815, 2255);
             this.tabPage1.TabIndex = 5;
             this.tabPage1.Text = "settings";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -980,7 +994,7 @@
             // 
             this.supplier_back.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplier_back.Location = new System.Drawing.Point(9, 22);
-            this.supplier_back.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.supplier_back.Margin = new System.Windows.Forms.Padding(7);
             this.supplier_back.Name = "supplier_back";
             this.supplier_back.Size = new System.Drawing.Size(152, 51);
             this.supplier_back.TabIndex = 25;
@@ -1092,7 +1106,7 @@
             // 
             this.manufacturer_back.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manufacturer_back.Location = new System.Drawing.Point(9, 22);
-            this.manufacturer_back.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.manufacturer_back.Margin = new System.Windows.Forms.Padding(7);
             this.manufacturer_back.Name = "manufacturer_back";
             this.manufacturer_back.Size = new System.Drawing.Size(152, 51);
             this.manufacturer_back.TabIndex = 25;
@@ -1299,22 +1313,20 @@
             this.flowLayoutPanel2.Controls.Add(this.tabControl1);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(7);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(3844, 2113);
             this.flowLayoutPanel2.TabIndex = 27;
             // 
-            // UpdateCustomer
+            // UpdateItem
             // 
-            this.UpdateCustomer.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateCustomer.Location = new System.Drawing.Point(2167, 1270);
-            this.UpdateCustomer.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.UpdateCustomer.Name = "UpdateCustomer";
-            this.UpdateCustomer.Size = new System.Drawing.Size(413, 109);
-            this.UpdateCustomer.TabIndex = 39;
-            this.UpdateCustomer.Text = "Update";
-            this.UpdateCustomer.UseVisualStyleBackColor = true;
-            this.UpdateCustomer.Click += new System.EventHandler(this.UpdateCustomer_Click);
+            this.UpdateItem.Location = new System.Drawing.Point(2207, 1363);
+            this.UpdateItem.Name = "UpdateItem";
+            this.UpdateItem.Size = new System.Drawing.Size(413, 121);
+            this.UpdateItem.TabIndex = 40;
+            this.UpdateItem.Text = "Update";
+            this.UpdateItem.UseVisualStyleBackColor = true;
+            this.UpdateItem.Click += new System.EventHandler(this.UpdateItem_Click);
             // 
             // RealityGlitch
             // 
@@ -1459,6 +1471,7 @@
         private System.Windows.Forms.ComboBox itemSearchFilter;
         private System.Windows.Forms.ComboBox customerSearchFilter;
         private System.Windows.Forms.Button UpdateCustomer;
+        private System.Windows.Forms.Button UpdateItem;
     }
 }
 

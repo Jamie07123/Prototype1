@@ -14,7 +14,8 @@ namespace Prototype1
     public partial class RealityGlitch : Form
     {
         CRUD crud = new CRUD();
-        int customerid;
+        int custID;
+        int itemID;
         int custIdSelected;
         int itemIdSelected;
         int orderId;
@@ -22,7 +23,7 @@ namespace Prototype1
         {
             InitializeComponent();
             titlebox.Text = "Mr";   //Sets title combobox default value
-            //Defualt values for combo boxes// 
+            //Default values for combo boxes// 
             itemSearchFilter.SelectedIndex = 0;
             customerSearchFilter.SelectedIndex = 0;
             //-------------------------------------------------------//
@@ -106,7 +107,7 @@ namespace Prototype1
             crud.AddSupplier(s);
         }
         //-----------------------------------------------------------------------------------------------------------------//
-        //Pulling IDs when selected in the datagridview//
+        //Pulling IDs when selected in the Order datagridview//
         //-----------------------------------------------------------------------------------------------------------------//
         private void CustomerGridView_SelectionChanged(object sender, EventArgs e)
         {
@@ -140,14 +141,48 @@ namespace Prototype1
         }
 
         //-----------------------------------------------------------------------------------------------------------------//
+        //Pulling ID when selected in the Individual datagridview//
+        //-----------------------------------------------------------------------------------------------------------------//
+
+        private void CustomerIdPull()
+        {
+            if (CustomerGridView2.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = CustomerGridView2.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = CustomerGridView2.Rows[selectedrowindex];
+
+                string a = Convert.ToString(selectedRow.Cells["CustomerId"].Value);
+
+                custID = Convert.ToInt32(a);
+            }
+        }
+
+        private void ItemIdPull()
+        {
+            if (ItemDataGrid.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = ItemDataGrid.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = ItemDataGrid.Rows[selectedrowindex];
+
+                string a = Convert.ToString(selectedRow.Cells["ItemId"].Value);
+
+                itemID = Convert.ToInt32(a);
+            }
+        }
+        
+        //-----------------------------------------------------------------------------------------------------------------//
         //Populate Text boxes for database editting//
         //-----------------------------------------------------------------------------------------------------------------//
         private void ItemDataGrid_SelectionChanged(object sender, EventArgs e)
         {
+            ItemIdPull();
             PopulateItemTextboxes();
         }
         private void CustomerGridView2_SelectionChanged(object sender, EventArgs e)
         {
+            CustomerIdPull();
             PopulateCustomerTextboxes();
         }
         private void PopulateItemTextboxes()
@@ -301,8 +336,14 @@ namespace Prototype1
 
         private void UpdateCustomer_Click(object sender, EventArgs e)
         {
-            crud.UpdateCustomerEntry(customerid, titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
+            crud.UpdateCustomerEntry(custID, titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
             UpdateCustomerGrid("");
+        }
+
+        private void UpdateItem_Click(object sender, EventArgs e)
+        {
+            crud.UpdateItemEntry(itemID, skubox.Text, itemtitlebox.Text, barcodebox.Text, retailbox.Text, purchasebox.Text, stockbox.Text, descbox.Text);
+            UpdateItemGrid("");
         }
 
 
