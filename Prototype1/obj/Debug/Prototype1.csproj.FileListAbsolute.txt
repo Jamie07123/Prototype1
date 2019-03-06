@@ -28,3 +28,18 @@ C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototype1\obj\D
 C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototype1\obj\Debug\Prototype1.csproj.CopyComplete
 C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototype1\obj\Debug\Prototype1.exe
 C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototype1\obj\Debug\Prototype1.pdb
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\bin\Debug\Database1.mdf
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\bin\Debug\Database1_log.ldf
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\bin\Debug\Prototype1.exe.config
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\bin\Debug\Prototype1.exe
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\bin\Debug\Prototype1.pdb
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\bin\Debug\Prototype_Library.dll
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\bin\Debug\Prototype_Library.pdb
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.csprojAssemblyReference.cache
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.RealityGlitch.resources
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.Properties.Resources.resources
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.csproj.GenerateResource.cache
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.csproj.CoreCompileInputs.cache
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.csproj.CopyComplete
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.exe
+C:\Users\jamie\Downloads\Prototype1-81353e1a9b254ec5518cffa6182267d4df2d9e9a\Prototype1\obj\Debug\Prototype1.pdb

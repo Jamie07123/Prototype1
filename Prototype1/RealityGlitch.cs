@@ -14,11 +14,15 @@ namespace Prototype1
     public partial class RealityGlitch : Form
     {
         CRUD crud = new CRUD();
+        //-------------------------------------------------------//
+        //IDs selected from individual data grids//
+        //-------------------------------------------------------//
         int orderID;
         int custID;
         int itemID;
-        int custIdSelected;
-        int itemIdSelected;
+        //-------------------------------------------------------//
+        int custIdSelected; //ID selected from customer data grid on orders page
+        int itemIdSelected; //ID selected from inventory data grid on orders page
         int orderId;
         public RealityGlitch()
         {
@@ -29,6 +33,7 @@ namespace Prototype1
             customerSearchFilter.SelectedIndex = 0;
             //-------------------------------------------------------//
             //Sets all datagridviews to display all values on startup//
+            //-------------------------------------------------------//
             UpdateItemDataGrid("");
             UpdateItemGrid("");
             UpdateCustomerDataGrid("");
@@ -40,48 +45,51 @@ namespace Prototype1
         //-----------------------------------------------------------------------------------------------------------------//
         //MENU/BACK BUTTONS//
         //-----------------------------------------------------------------------------------------------------------------//
-        private void menu_customer_Click(object sender, EventArgs e)
+
+        private void Menu_customer_Click(object sender, EventArgs e)
         {
             customer_panel.Visible = true;
         }
 
-        private void customer_back_Click(object sender, EventArgs e)
+        private void Customer_Back_Click(object sender, EventArgs e)
         {
             customer_panel.Visible = false;
         }
 
-        private void item_back_Click(object sender, EventArgs e)
+        private void Item_Back_Click(object sender, EventArgs e)
         {
             item_panel.Visible = false;
         }
 
-        private void menu_item_Click(object sender, EventArgs e)
+        private void Menu_item_Click(object sender, EventArgs e)
         {
             item_panel.Visible = true;
         }
 
-        private void manufacturer_back_Click(object sender, EventArgs e)
+        private void Manufacturer_Back_Click(object sender, EventArgs e)
         {
             manufacturer_panel.Visible = false;
         }
 
-        private void menu_manufacturer_Click(object sender, EventArgs e)
+        private void Menu_manufacturer_Click(object sender, EventArgs e)
         {
             manufacturer_panel.Visible = true;
         }
 
-        private void supplier_back_Click(object sender, EventArgs e)
+        private void Supplier_Back_Click(object sender, EventArgs e)
         {
             supplier_panel.Visible = false;
         }
 
-        private void menu_Supplier_Click(object sender, EventArgs e)
+        private void Menu_Supplier_Click(object sender, EventArgs e)
         {
             supplier_panel.Visible = true;
         }
+
         //-----------------------------------------------------------------------------------------------------------------//
         //SUBMIT BUTTONS//
         //-----------------------------------------------------------------------------------------------------------------//
+
         private void Item_submit_Click(object sender, EventArgs e)
         {
             Item i = new Item(skubox.Text, itemtitlebox.Text, barcodebox.Text, retailbox.Text, purchasebox.Text, stockbox.Text, descbox.Text);
@@ -102,14 +110,43 @@ namespace Prototype1
             crud.AddManufacturer(m);
         }
 
-        private void supplier_submit_Click(object sender, EventArgs e)
+        private void Supplier_submit_Click(object sender, EventArgs e)
         {
             Supplier s = new Supplier(supnamebox.Text, supcontactbox.Text, supaddressbox.Text);
             crud.AddSupplier(s);
         }
+
+        private void AddOrder_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = ItemGridView.SelectedCells[0].RowIndex;
+            DataGridViewRow itemRow = ItemGridView.Rows[selectedrowindex];
+            string retailprice = Convert.ToString(itemRow.Cells["RetailPrice"].Value);
+            if (orderId == -1)
+            {
+                Order o = new Order(custIdSelected, DateTime.Now, "Processing");
+                orderId = crud.AddOrder(o);
+                Basket b = new Basket(orderId, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
+                crud.AddBasket(b);
+            }
+            else
+            {
+                if (itemQuantity.Text == "")
+                {
+                    MessageBox.Show("ERROR - PLEASE ENTER ITEM QUANTITY");
+                }
+                else
+                {
+                    Basket b = new Basket(orderId, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
+                    crud.AddBasket(b);
+                }
+            }
+            PopulateOrderGrid(custIdSelected);
+        }
+
         //-----------------------------------------------------------------------------------------------------------------//
         //Pulling IDs when selected in the Order datagridview//
         //-----------------------------------------------------------------------------------------------------------------//
+
         private void CustomerGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (CustomerGridView.SelectedCells.Count > 0)
@@ -147,15 +184,24 @@ namespace Prototype1
 
         private void OrderIdPull()
         {
-            if (OrderGridView.SelectedCells.Count > 0)
+            try
             {
-                int selectedrowindex = OrderGridView.SelectedCells[0].RowIndex;
+                if (OrderGridView.SelectedCells.Count > 0)
+                {
+                    int selectedrowindex = OrderGridView.SelectedCells[0].RowIndex;
 
-                DataGridViewRow selectedRow = OrderGridView.Rows[selectedrowindex];
+                    DataGridViewRow selectedRow = OrderGridView.Rows[selectedrowindex];
 
-                string a = Convert.ToString(selectedRow.Cells["OrderId"].Value);
+                    string a = Convert.ToString(selectedRow.Cells["OrderId"].Value);
 
-                orderID = Convert.ToInt32(a);
+                    orderID = Convert.ToInt32(a);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+                MessageBox.Show("ERROR - No Order Selected");
             }
         }
 
@@ -190,6 +236,7 @@ namespace Prototype1
         //-----------------------------------------------------------------------------------------------------------------//
         //Populate Text boxes for database editting//
         //-----------------------------------------------------------------------------------------------------------------//
+
         private void OrderGridView_SelectionChanged(object sender, EventArgs e)
         {
             OrderIdPull();
@@ -245,72 +292,37 @@ namespace Prototype1
             }
         }
 
-
-        //-----------------------------------------------------------------------------------------------------------------//
-        //Creates new order and adds selected item to a basket//
-        //-----------------------------------------------------------------------------------------------------------------//
-
-        private void addOrder_Click(object sender, EventArgs e)
-        {
-            int selectedrowindex = ItemGridView.SelectedCells[0].RowIndex;
-            DataGridViewRow itemRow = ItemGridView.Rows[selectedrowindex];
-            string retailprice = Convert.ToString(itemRow.Cells["RetailPrice"].Value);
-            if (orderId == -1)
-            {
-                Order o = new Order(custIdSelected, DateTime.Now, "Processing");
-                orderId = crud.AddOrder(o);
-                Basket b = new Basket(orderId, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
-                crud.AddBasket(b);
-            }
-            else
-            {
-                if(itemQuantity.Text == "")
-                {
-                    MessageBox.Show("ERROR - PLEASE ENTER ITEM QUANTITY");
-                }
-                else
-                {
-                    Basket b = new Basket(orderId, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
-                    crud.AddBasket(b);
-                }
-            }
-            PopulateOrderGrid(custIdSelected);
-        }
-
         //-----------------------------------------------------------------------------------------------------------------//
         //DatagridView update/search//
         //-----------------------------------------------------------------------------------------------------------------//
 
-        //Customer datagridview on orders screen
+        //Customer datagridview on orders screen//
         private void CustomerSearchBox_TextChanged(object sender, EventArgs e)
         {
             UpdateCustomerDataGrid(CustomerSearchBox.Text);
         }
-
         public void UpdateCustomerDataGrid(string CustomerSearch)
         {
             CustomerGridView.DataSource = null;
             CustomerGridView.DataSource = crud.SearchOrdersByCustomer(CustomerSearch);
         }
 
-        //Item datagrid view on orders screen
+        //Item datagrid view on orders screen//
         private void ItemSearchBox_TextChanged(object sender, EventArgs e)
         {
             UpdateItemDataGrid(ItemSearchBox.Text);
         }
-
         public void UpdateItemDataGrid(string ItemSearch)
         {
             ItemGridView.DataSource = null;
             ItemGridView.DataSource = crud.SearchOrdersByItem(ItemSearch);
         }
 
-        //Customer datagridview on customer screen
+        //Customer datagridview on customer screen//
         private void CustomerSearchBox2_TextChanged_1(object sender, EventArgs e)
         {
             UpdateCustomerGrid(CustomerSearchBox2.Text);
         }
-
         public void UpdateCustomerGrid(string CustomerSearch)
         {
             if (customerSearchFilter.SelectedIndex == 0)
@@ -326,12 +338,11 @@ namespace Prototype1
 
         }
 
-        //Item datagridview on item screen
+        //Item datagridview on item screen//
         private void ItemSearch_TextChanged(object sender, EventArgs e)
         {
             UpdateItemGrid(ItemSearch.Text);
         }
-
         public void UpdateItemGrid(string ItemSearch)
         {
             if (itemSearchFilter.SelectedIndex == 0)
@@ -347,10 +358,19 @@ namespace Prototype1
 
         }
 
-        //order datagridview on orders screen
+        //order datagridview on orders screen//
         private void PopulateOrderGrid(int id)
         {
             OrderGridView.DataSource = crud.PopulateOrdersGrid(id);
+        }
+        private void OrderSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateOrderGrid(OrderSearchBox.Text);
+        }
+        private void UpdateOrderGrid(string itemname)
+        {
+            OrderGridView.DataSource = null;
+            OrderGridView.DataSource = crud.SearchOrdersByItemName(itemname, custIdSelected);
         }
 
         //-----------------------------------------------------------------------------------------------------------------//
@@ -375,9 +395,11 @@ namespace Prototype1
             DataGridViewRow itemRow = ItemGridView.Rows[selectedrowindex];
             string retailprice = Convert.ToString(itemRow.Cells["RetailPrice"].Value);
             crud.UpdateOrderEntry(orderID, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
-            
+            PopulateOrderGrid(custIdSelected);
         }
 
         //-----------------------------------------------------------------------------------------------------------------//
+        //-----------------------------------------------------------------------------------------------------------------//
+
     }
 }

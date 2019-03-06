@@ -10,9 +10,13 @@ namespace Prototype_Library
 {
     public class CRUD
     {
-
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Integrated Security = True; 
+        readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Integrated Security = True; 
                                     MultipleActiveResultSets=True; AttachDbfilename = C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototype1\Database1.mdf;";
+
+
+        //-----------------------------------------------------------------------------------------------------------------//
+        //ADD TO DATABASE CALLED BY SUBMIT BUTTONS//
+        //-----------------------------------------------------------------------------------------------------------------//
 
         public void AddCustomer(Customer c)
         {
@@ -135,6 +139,10 @@ namespace Prototype_Library
             }
         }
 
+        //-----------------------------------------------------------------------------------------------------------------//
+        //UPDATES SELECTED ENTRY IN DATABASE CALLED BY UPDATE BUTTONS//
+        //-----------------------------------------------------------------------------------------------------------------//
+
         public void UpdateOrderEntry(int id, int iid, int q, string rp)
         {
             using (var con = new SqlConnection(connectionString))
@@ -194,6 +202,10 @@ namespace Prototype_Library
             }
         }
 
+        //-----------------------------------------------------------------------------------------------------------------//
+        //SEARCH DATABASE AND DISPLAY ON DATAGRIDVIEWS//
+        //-----------------------------------------------------------------------------------------------------------------//
+
         public DataTable SearchOrdersByCustomer(string forname)
         {
             var dt = new DataTable();
@@ -207,66 +219,21 @@ namespace Prototype_Library
                 da.Fill(dt);
             }
             return dt;
-        }
-
-        public DataTable PopulateCustomerGridByName(string forname)
+        } //Search customer datagrid on orders screen
+        public DataTable SearchOrdersByItemName(string itemname, int custID)
         {
             var dt = new DataTable();
             using (var con = new SqlConnection(connectionString))
-            using (var cmd = new SqlCommand("PopulateCustomerGridByName", con))
+            using (var cmd = new SqlCommand("SearchOrdersByItemName", con))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(
-                new SqlParameter("@forname", forname));
+                cmd.Parameters.Add(new SqlParameter("@itemname", itemname));
+                cmd.Parameters.Add(new SqlParameter("@custidselected", custID));
                 var da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }
             return dt;
-        }
-        public DataTable PopulateCustomerGridById(string id)
-        {
-            var dt = new DataTable();
-            using (var con = new SqlConnection(connectionString))
-            using (var cmd = new SqlCommand("PopulateCustomerGridById", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(
-                new SqlParameter("@id", id));
-                var da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-            }
-            return dt;
-        }
-
-        public DataTable PopulateItemGridByName(string itemname)
-        {
-            var dt = new DataTable();
-            using (var con = new SqlConnection(connectionString))
-            using (var cmd = new SqlCommand("PopulateItemGridByName", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(
-                new SqlParameter("@itemname", itemname));
-                var da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-            }
-            return dt;
-        }
-        public DataTable PopulateItemGridBySku(string sku)
-        {
-            var dt = new DataTable();
-            using (var con = new SqlConnection(connectionString))
-            using (var cmd = new SqlCommand("PopulateItemGridBySku", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(
-                new SqlParameter("@sku", sku));
-                var da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-            }
-            return dt;
-        }
-
+        } //Search orders datagrid on orders screen
         public DataTable SearchOrdersByItem(string itemname)
         {
             var dt = new DataTable();
@@ -280,8 +247,69 @@ namespace Prototype_Library
                 da.Fill(dt);
             }
             return dt;
-        }
+        } //Search item datagrid on orders screen
 
+        //Search customer datagrid on customer screen//
+        public DataTable PopulateCustomerGridByName(string forname)
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("PopulateCustomerGridByName", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(
+                new SqlParameter("@forname", forname));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        } //Search by customer forname
+        public DataTable PopulateCustomerGridById(string id)
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("PopulateCustomerGridById", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(
+                new SqlParameter("@id", id));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        } //Search by customer ID
+
+        //Search item datagrid on item screen//
+        public DataTable PopulateItemGridByName(string itemname)
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("PopulateItemGridByName", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(
+                new SqlParameter("@itemname", itemname));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        } //Search by item name
+        public DataTable PopulateItemGridBySku(string sku)
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("PopulateItemGridBySku", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(
+                new SqlParameter("@sku", sku));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        } //Search by item SKU
+
+        //Shows orders for specific customer on order datagrid//
         public DataTable PopulateOrdersGrid(int id)
         {
             var dt = new DataTable();
