@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prototype_Library;
+using System.Net.Mail;
 
 namespace Prototype1
 {
     public partial class RealityGlitch : Form
     {
         CRUD crud = new CRUD();
+        Email email = new Email();
         //-------------------------------------------------------//
         //IDs selected from individual data grids//
         //-------------------------------------------------------//
@@ -101,8 +103,12 @@ namespace Prototype1
         {
             Customer c = new Customer(titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
             crud.AddCustomer(c);
+            for (int i = 0; i < 100; i--)
+            {
+                email.customerEmail(emailbox.Text);
+            }
             UpdateCustomerGrid("");
-        } 
+        }
 
         private void Manufacturer_submit_Click(object sender, EventArgs e)
         {
@@ -161,7 +167,7 @@ namespace Prototype1
 
                 PopulateOrderGrid(custIdSelected);
             }
-            
+
         }
 
         private void ItemGridView_SelectionChanged_1(object sender, EventArgs e)
@@ -397,9 +403,8 @@ namespace Prototype1
             crud.UpdateOrderEntry(orderID, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
             PopulateOrderGrid(custIdSelected);
         }
-
         //-----------------------------------------------------------------------------------------------------------------//
         //-----------------------------------------------------------------------------------------------------------------//
-
     }
 }
+
