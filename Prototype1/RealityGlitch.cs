@@ -103,10 +103,7 @@ namespace Prototype1
         {
             Customer c = new Customer(titlebox.Text, fornamebox.Text, surnamebox.Text, countrybox.Text, address1box.Text, address2box.Text, townbox.Text, countybox.Text, postcodebox.Text, telebox.Text, emailbox.Text);
             crud.AddCustomer(c);
-            for (int i = 0; i < 100; i--)
-            {
-                email.customerEmail(emailbox.Text);
-            }
+            email.CustomerEmail(emailbox.Text);
             UpdateCustomerGrid("");
         }
 
@@ -133,6 +130,8 @@ namespace Prototype1
                 orderId = crud.AddOrder(o);
                 Basket b = new Basket(orderId, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
                 crud.AddBasket(b);
+                OrderEmailDetails();
+
             }
             else
             {
@@ -144,6 +143,8 @@ namespace Prototype1
                 {
                     Basket b = new Basket(orderId, itemIdSelected, Convert.ToInt32(itemQuantity.Text), retailprice);
                     crud.AddBasket(b);
+                    crud.OrderDetails(orderId);
+                    OrderEmailDetails();
                 }
             }
             PopulateOrderGrid(custIdSelected);
@@ -405,6 +406,20 @@ namespace Prototype1
         }
         //-----------------------------------------------------------------------------------------------------------------//
         //-----------------------------------------------------------------------------------------------------------------//
+
+        public void OrderEmailDetails()
+        {
+            DataTable dt = crud.OrderDetails(orderId);
+            List<string> orderList = new List<string>();
+            foreach (DataRow rows in dt.Rows)
+            {
+                foreach (DataColumn col in dt.Columns)
+                {
+                    orderList.Add(rows[col].ToString());
+                }
+            }
+            email.OrderEmail(orderList[0], orderList[1], orderList[2], orderList[3], orderList[4], orderList[5], orderList[6], orderList[7]);
+        }
     }
 }
 

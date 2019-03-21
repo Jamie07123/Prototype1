@@ -324,5 +324,20 @@ namespace Prototype_Library
             }
             return dt;
         }
+
+        public DataTable OrderDetails(int OrderId)
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("OrderEmailDetails", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(
+                new SqlParameter("@orderID", OrderId));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
     }
 }
