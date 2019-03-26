@@ -22,6 +22,8 @@ namespace Prototype1
         int orderID;
         int custID;
         int itemID;
+        int CustOrderId;
+        string password = "password";
         //-------------------------------------------------------//
         int custIdSelected; //ID selected from customer data grid on orders page
         int itemIdSelected; //ID selected from inventory data grid on orders page
@@ -40,6 +42,7 @@ namespace Prototype1
             UpdateItemGrid("");
             UpdateCustomerDataGrid("");
             UpdateCustomerGrid("");
+            UpdateOrderList();
             //-------------------------------------------------------//
             orderId = -1; //Clears the orderID on startup
         }
@@ -94,7 +97,7 @@ namespace Prototype1
 
         private void Item_submit_Click(object sender, EventArgs e)
         {
-            Item i = new Item(skubox.Text, itemtitlebox.Text, barcodebox.Text, retailbox.Text, purchasebox.Text, stockbox.Text, descbox.Text);
+            Item i = new Item(skubox.Text, itemtitlebox.Text, barcodebox.Text, retailbox.Text, purchasebox.Text, stockbox.Text, descbox.Text, Convert.ToInt32(timeBox.Text));
             crud.AddItem(i);
             UpdateItemDataGrid("");
         }
@@ -191,24 +194,15 @@ namespace Prototype1
 
         private void OrderIdPull()
         {
-            try
+            if (OrderGridView.SelectedCells.Count > 0)
             {
-                if (OrderGridView.SelectedCells.Count > 0)
-                {
-                    int selectedrowindex = OrderGridView.SelectedCells[0].RowIndex;
+                int selectedrowindex = OrderGridView.SelectedCells[0].RowIndex;
 
-                    DataGridViewRow selectedRow = OrderGridView.Rows[selectedrowindex];
+                DataGridViewRow selectedRow = OrderGridView.Rows[selectedrowindex];
 
-                    string a = Convert.ToString(selectedRow.Cells["OrderId"].Value);
+                string a = Convert.ToString(selectedRow.Cells["OrderId"].Value);
 
-                    orderID = Convert.ToInt32(a);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex);
-                MessageBox.Show("ERROR - No Order Selected");
+                orderID = Convert.ToInt32(a);
             }
         }
 
@@ -237,6 +231,20 @@ namespace Prototype1
                 string a = Convert.ToString(selectedRow.Cells["ItemId"].Value);
 
                 itemID = Convert.ToInt32(a);
+            }
+        }
+
+        private void CustIdOnOrderPull()
+        {
+            if (OrderGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = OrderGridView.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = OrderGridView.Rows[selectedrowindex];
+
+                string a = Convert.ToString(selectedRow.Cells["CustomerId"].Value);
+
+                CustOrderId = Convert.ToInt32(a);
             }
         }
 
@@ -274,6 +282,7 @@ namespace Prototype1
                 purchasebox.Text = Convert.ToString(selectedRow.Cells["PurchasePrice"].Value);
                 stockbox.Text = Convert.ToString(selectedRow.Cells["StockLvl"].Value);
                 descbox.Text = Convert.ToString(selectedRow.Cells["Description"].Value);
+                timeBox.Text = Convert.ToString(selectedRow.Cells["Time"].Value);
             }
         }
         private void PopulateCustomerTextboxes()
@@ -380,6 +389,11 @@ namespace Prototype1
             OrderGridView.DataSource = crud.SearchOrdersByItemName(itemname, custIdSelected);
         }
 
+        private void UpdateOrderList()
+        {
+            orderListView.DataSource = null;
+            orderListView.DataSource = crud.GenerateItemOrder();
+        }
         //-----------------------------------------------------------------------------------------------------------------//
         //Editing Database Entries//
         //-----------------------------------------------------------------------------------------------------------------//
@@ -419,6 +433,24 @@ namespace Prototype1
                 }
             }
             email.OrderEmail(orderList[0], orderList[1], orderList[2], orderList[3], orderList[4], orderList[5], orderList[6], orderList[7]);
+        }
+
+        private void passSubmit_Click(object sender, EventArgs e)
+        {
+            if (passBox.Text == password) //pass = password//
+            {
+                passwordPanel.Visible = false;
+                passBox.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("ERROR - INCORRECT PASSWORD");
+            }
+        }
+
+        private void logoutbutton_Click(object sender, EventArgs e)
+        {
+            passwordPanel.Visible = true;
         }
     }
 }

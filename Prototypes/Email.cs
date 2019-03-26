@@ -11,9 +11,6 @@ namespace Prototype_Library
 {
     public class Email
     {
-        readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB; Integrated Security = True; 
-                                    MultipleActiveResultSets=True; AttachDbfilename = C:\Users\jamie\Documents\Visual Studio 2017\Projects\Prototype1\Prototype1\Database1.mdf;";
-
         public void CustomerEmail(string e)
         {
             MailMessage mail = new MailMessage();

@@ -51,7 +51,7 @@ namespace Prototype_Library
             {
                 con.Open();
 
-                var cmd = new SqlCommand("INSERT INTO Item (ItemName, SKU, Barcode, RetailPrice, PurchasePrice, StockLvl, Description) Values (@ItemName, @SKU, @Barcode, @RetailPrice, @PurchasePrice, @StockLvl, @Description)", con);
+                var cmd = new SqlCommand("INSERT INTO Item (ItemName, SKU, Barcode, RetailPrice, PurchasePrice, StockLvl, Description, Time) Values (@ItemName, @SKU, @Barcode, @RetailPrice, @PurchasePrice, @StockLvl, @Description, @Time)", con);
 
                 cmd.Parameters.AddWithValue("@ItemName", i.ItemName);
                 cmd.Parameters.AddWithValue("@SKU", i.SKU);
@@ -60,6 +60,7 @@ namespace Prototype_Library
                 cmd.Parameters.AddWithValue("@PurchasePrice", i.PurchasePrice);
                 cmd.Parameters.AddWithValue("@StockLvl", i.StockLvl);
                 cmd.Parameters.AddWithValue("@Description", i.Description);
+                cmd.Parameters.AddWithValue("'Time", i.Time);
 
                 cmd.ExecuteNonQuery();
 
@@ -334,6 +335,19 @@ namespace Prototype_Library
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(
                 new SqlParameter("@orderID", OrderId));
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable GenerateItemOrder()
+        {
+            var dt = new DataTable();
+            using (var con = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand("GenerateItemOrder", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
                 var da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }

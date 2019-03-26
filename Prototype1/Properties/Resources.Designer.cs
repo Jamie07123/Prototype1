@@ -89,5 +89,15 @@ namespace Prototype1.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reality_glitch_logo_Black_540x {
+            get {
+                object obj = ResourceManager.GetObject("reality-glitch-logo-Black_540x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

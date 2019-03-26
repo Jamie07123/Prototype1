@@ -8,7 +8,7 @@ namespace Prototype_Library
 {
     public class Item
     {
-        public Item(string sku, string itemname, string barcode, string retailprice, string purchaseprice, string stocklvl, string description)
+        public Item(string sku, string itemname, string barcode, string retailprice, string purchaseprice, string stocklvl, string description, int time)
         {
             this.SKU = sku;
             this.ItemName = itemname;
@@ -17,6 +17,7 @@ namespace Prototype_Library
             this.PurchasePrice = purchaseprice;
             this.StockLvl = stocklvl;
             this.Description = description;
+            this.Time = time;
         }
 
         public string SKU { get; set; }
@@ -26,5 +27,6 @@ namespace Prototype_Library
         public string PurchasePrice { get; set; }
         public string StockLvl { get; set; }
         public string Description { get; set; }
+        public int Time { get; set; }
     }
 }

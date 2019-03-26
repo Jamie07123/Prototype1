@@ -30,16 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RealityGlitch));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Menu_customer = new System.Windows.Forms.Button();
-            this.Menu_item = new System.Windows.Forms.Button();
-            this.Menu_manufacturer = new System.Windows.Forms.Button();
-            this.Menu_Order = new System.Windows.Forms.Button();
-            this.menu_Supplier = new System.Windows.Forms.Button();
             this.database1DataSet = new Prototype1.Database1DataSet();
             this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.database1DataSet1 = new Prototype1.Database1DataSet();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.passwordPanel = new System.Windows.Forms.Panel();
+            this.passBox = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.passSubmit = new System.Windows.Forms.Button();
+            this.logoutbutton = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.orderListView = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.manufacturer_panel = new System.Windows.Forms.Panel();
             this.mannamebox = new System.Windows.Forms.TextBox();
@@ -132,12 +134,18 @@
             this.label34 = new System.Windows.Forms.Label();
             this.itemSearchFilter = new System.Windows.Forms.ComboBox();
             this.UpdateItem = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.label35 = new System.Windows.Forms.Label();
+            this.timeBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.passwordPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderListView)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.manufacturer_panel.SuspendLayout();
             this.supplier_panel.SuspendLayout();
@@ -152,102 +160,8 @@
             this.item.SuspendLayout();
             this.item_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemDataGrid)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Controls.Add(this.Menu_customer);
-            this.flowLayoutPanel1.Controls.Add(this.Menu_item);
-            this.flowLayoutPanel1.Controls.Add(this.Menu_manufacturer);
-            this.flowLayoutPanel1.Controls.Add(this.Menu_Order);
-            this.flowLayoutPanel1.Controls.Add(this.menu_Supplier);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(190, 1039);
-            this.flowLayoutPanel1.TabIndex = 30;
-            // 
-            // Menu_customer
-            // 
-            this.Menu_customer.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Menu_customer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Menu_customer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Menu_customer.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu_customer.ForeColor = System.Drawing.Color.Black;
-            this.Menu_customer.Location = new System.Drawing.Point(2, 2);
-            this.Menu_customer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Menu_customer.Name = "Menu_customer";
-            this.Menu_customer.Size = new System.Drawing.Size(188, 203);
-            this.Menu_customer.TabIndex = 0;
-            this.Menu_customer.Text = "customer";
-            this.Menu_customer.UseVisualStyleBackColor = false;
-            this.Menu_customer.Click += new System.EventHandler(this.Menu_customer_Click);
-            // 
-            // Menu_item
-            // 
-            this.Menu_item.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Menu_item.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Menu_item.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Menu_item.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu_item.ForeColor = System.Drawing.Color.Black;
-            this.Menu_item.Location = new System.Drawing.Point(2, 209);
-            this.Menu_item.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Menu_item.Name = "Menu_item";
-            this.Menu_item.Size = new System.Drawing.Size(185, 203);
-            this.Menu_item.TabIndex = 1;
-            this.Menu_item.Text = "inventory";
-            this.Menu_item.UseVisualStyleBackColor = false;
-            this.Menu_item.Click += new System.EventHandler(this.Menu_item_Click);
-            // 
-            // Menu_manufacturer
-            // 
-            this.Menu_manufacturer.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Menu_manufacturer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Menu_manufacturer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Menu_manufacturer.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu_manufacturer.ForeColor = System.Drawing.Color.Black;
-            this.Menu_manufacturer.Location = new System.Drawing.Point(2, 416);
-            this.Menu_manufacturer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Menu_manufacturer.Name = "Menu_manufacturer";
-            this.Menu_manufacturer.Size = new System.Drawing.Size(185, 203);
-            this.Menu_manufacturer.TabIndex = 2;
-            this.Menu_manufacturer.Text = "manufact";
-            this.Menu_manufacturer.UseVisualStyleBackColor = false;
-            this.Menu_manufacturer.Click += new System.EventHandler(this.Menu_manufacturer_Click);
-            // 
-            // Menu_Order
-            // 
-            this.Menu_Order.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Menu_Order.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Menu_Order.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Menu_Order.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu_Order.ForeColor = System.Drawing.Color.Black;
-            this.Menu_Order.Location = new System.Drawing.Point(2, 623);
-            this.Menu_Order.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Menu_Order.Name = "Menu_Order";
-            this.Menu_Order.Size = new System.Drawing.Size(185, 203);
-            this.Menu_Order.TabIndex = 4;
-            this.Menu_Order.Text = "orders";
-            this.Menu_Order.UseVisualStyleBackColor = false;
-            // 
-            // menu_Supplier
-            // 
-            this.menu_Supplier.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.menu_Supplier.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.menu_Supplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menu_Supplier.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menu_Supplier.ForeColor = System.Drawing.Color.Black;
-            this.menu_Supplier.Location = new System.Drawing.Point(2, 830);
-            this.menu_Supplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.menu_Supplier.Name = "menu_Supplier";
-            this.menu_Supplier.Size = new System.Drawing.Size(185, 203);
-            this.menu_Supplier.TabIndex = 3;
-            this.menu_Supplier.Text = "Supplier";
-            this.menu_Supplier.UseVisualStyleBackColor = false;
-            this.menu_Supplier.Click += new System.EventHandler(this.Menu_Supplier_Click);
             // 
             // database1DataSet
             // 
@@ -264,17 +178,102 @@
             this.database1DataSet1.DataSetName = "Database1DataSet";
             this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // flowLayoutPanel2
+            // passwordPanel
             // 
-            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
-            this.flowLayoutPanel2.Controls.Add(this.tabControl1);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1503, 787);
-            this.flowLayoutPanel2.TabIndex = 27;
+            this.passwordPanel.BackColor = System.Drawing.Color.Red;
+            this.passwordPanel.Controls.Add(this.passSubmit);
+            this.passwordPanel.Controls.Add(this.pictureBox1);
+            this.passwordPanel.Controls.Add(this.passBox);
+            this.passwordPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.passwordPanel.Location = new System.Drawing.Point(0, 0);
+            this.passwordPanel.Name = "passwordPanel";
+            this.passwordPanel.Size = new System.Drawing.Size(1646, 891);
+            this.passwordPanel.TabIndex = 28;
+            // 
+            // passBox
+            // 
+            this.passBox.Location = new System.Drawing.Point(544, 394);
+            this.passBox.Name = "passBox";
+            this.passBox.PasswordChar = '*';
+            this.passBox.Size = new System.Drawing.Size(414, 20);
+            this.passBox.TabIndex = 0;
+            this.passBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Prototype1.Properties.Resources.reality_glitch_logo_Black_540x;
+            this.pictureBox1.Location = new System.Drawing.Point(477, 217);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(560, 163);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // passSubmit
+            // 
+            this.passSubmit.Location = new System.Drawing.Point(644, 425);
+            this.passSubmit.Name = "passSubmit";
+            this.passSubmit.Size = new System.Drawing.Size(215, 23);
+            this.passSubmit.TabIndex = 2;
+            this.passSubmit.Text = "Submit";
+            this.passSubmit.UseVisualStyleBackColor = true;
+            this.passSubmit.Click += new System.EventHandler(this.passSubmit_Click);
+            // 
+            // logoutbutton
+            // 
+            this.logoutbutton.Location = new System.Drawing.Point(1417, 2);
+            this.logoutbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.logoutbutton.Name = "logoutbutton";
+            this.logoutbutton.Size = new System.Drawing.Size(177, 49);
+            this.logoutbutton.TabIndex = 26;
+            this.logoutbutton.Text = "logout";
+            this.logoutbutton.UseVisualStyleBackColor = true;
+            this.logoutbutton.Click += new System.EventHandler(this.logoutbutton_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.item);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(197, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1215, 1037);
+            this.tabControl1.TabIndex = 31;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.orderListView);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1207, 1011);
+            this.tabPage2.TabIndex = 6;
+            this.tabPage2.Text = "Order of Orders";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // orderListView
+            // 
+            this.orderListView.AllowUserToAddRows = false;
+            this.orderListView.AllowUserToDeleteRows = false;
+            this.orderListView.AllowUserToOrderColumns = true;
+            this.orderListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.orderListView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.orderListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderListView.Location = new System.Drawing.Point(146, 59);
+            this.orderListView.Name = "orderListView";
+            this.orderListView.ReadOnly = true;
+            this.orderListView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.orderListView.Size = new System.Drawing.Size(885, 602);
+            this.orderListView.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -580,6 +579,8 @@
             // 
             // CustomerGridView
             // 
+            this.CustomerGridView.AllowUserToAddRows = false;
+            this.CustomerGridView.AllowUserToDeleteRows = false;
             this.CustomerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CustomerGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.CustomerGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -595,6 +596,8 @@
             // 
             // ItemGridView
             // 
+            this.ItemGridView.AllowUserToAddRows = false;
+            this.ItemGridView.AllowUserToDeleteRows = false;
             this.ItemGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ItemGridView.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.ItemGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1056,6 +1059,8 @@
             // item_panel
             // 
             this.item_panel.BackColor = System.Drawing.Color.White;
+            this.item_panel.Controls.Add(this.timeBox);
+            this.item_panel.Controls.Add(this.label35);
             this.item_panel.Controls.Add(this.UpdateItem);
             this.item_panel.Controls.Add(this.itemSearchFilter);
             this.item_panel.Controls.Add(this.label34);
@@ -1126,7 +1131,7 @@
             // 
             // descbox
             // 
-            this.descbox.Location = new System.Drawing.Point(1032, 381);
+            this.descbox.Location = new System.Drawing.Point(1032, 418);
             this.descbox.Margin = new System.Windows.Forms.Padding(2);
             this.descbox.Multiline = true;
             this.descbox.Name = "descbox";
@@ -1159,7 +1164,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(891, 380);
+            this.label18.Location = new System.Drawing.Point(891, 417);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 18);
@@ -1314,36 +1319,71 @@
             this.UpdateItem.UseVisualStyleBackColor = true;
             this.UpdateItem.Click += new System.EventHandler(this.UpdateItem_Click);
             // 
-            // tabControl1
+            // label35
             // 
-            this.tabControl1.Controls.Add(this.item);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(197, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1215, 1037);
-            this.tabControl1.TabIndex = 31;
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label35.Location = new System.Drawing.Point(893, 386);
+            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(45, 18);
+            this.label35.TabIndex = 41;
+            this.label35.Text = "Time";
+            // 
+            // timeBox
+            // 
+            this.timeBox.Location = new System.Drawing.Point(1032, 384);
+            this.timeBox.Margin = new System.Windows.Forms.Padding(2);
+            this.timeBox.Name = "timeBox";
+            this.timeBox.Size = new System.Drawing.Size(147, 20);
+            this.timeBox.TabIndex = 42;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
+            this.flowLayoutPanel2.Controls.Add(this.tabControl1);
+            this.flowLayoutPanel2.Controls.Add(this.logoutbutton);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1646, 891);
+            this.flowLayoutPanel2.TabIndex = 27;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(190, 1039);
+            this.flowLayoutPanel1.TabIndex = 30;
             // 
             // RealityGlitch
             // 
+            this.AcceptButton = this.passSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(1503, 787);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1646, 891);
+            this.Controls.Add(this.passwordPanel);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RealityGlitch";
             this.Text = "Reality Glitch";
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.passwordPanel.ResumeLayout(false);
+            this.passwordPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.orderListView)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.manufacturer_panel.ResumeLayout(false);
             this.manufacturer_panel.PerformLayout();
@@ -1363,25 +1403,26 @@
             this.item_panel.ResumeLayout(false);
             this.item_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemDataGrid)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button Menu_Order;
-        private System.Windows.Forms.Button menu_Supplier;
-        private System.Windows.Forms.Button Menu_manufacturer;
-        private System.Windows.Forms.Button Menu_item;
-        private System.Windows.Forms.Button Menu_customer;
         private System.Windows.Forms.BindingSource database1DataSetBindingSource;
         private Database1DataSet database1DataSet;
         private Database1DataSet database1DataSet1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Panel passwordPanel;
+        private System.Windows.Forms.TextBox passBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button passSubmit;
+        private System.Windows.Forms.Button logoutbutton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage item;
         private System.Windows.Forms.Panel item_panel;
+        private System.Windows.Forms.TextBox timeBox;
+        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button UpdateItem;
         private System.Windows.Forms.ComboBox itemSearchFilter;
         private System.Windows.Forms.Label label34;
@@ -1472,6 +1513,10 @@
         private System.Windows.Forms.TextBox mancontactbox;
         private System.Windows.Forms.TextBox manaddressbox;
         private System.Windows.Forms.TextBox mannamebox;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView orderListView;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
